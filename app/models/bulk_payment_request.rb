@@ -1,4 +1,4 @@
-class BulkPayment
+class BulkPaymentRequest
   include ActiveModel::Model
   include ActiveModel::Attributes
 

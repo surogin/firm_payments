@@ -1,6 +1,6 @@
 require "test_helper"
 
-class BulkPaymentTest < ActiveSupport::TestCase
+class BulkPaymentRequestTest < ActiveSupport::TestCase
   setup do
     @payer = Firm.create!(name: "Payer", balance_cents: 100_000)
     @payee = Firm.create!(name: "Payee")
@@ -58,7 +58,7 @@ class BulkPaymentTest < ActiveSupport::TestCase
 
   private
     def build(payer_firm_uuid: @payer.uuid, payments: [ { "amount" => "1", "payee_firm_uuid" => @payee.uuid } ])
-      BulkPayment.new(payer_firm_uuid:, payments:)
+      BulkPaymentRequest.new(payer_firm_uuid:, payments:)
     end
 
     def assert_invalid_on(attribute, bulk, message = nil)
